@@ -46,6 +46,14 @@ public class Restaurant {
         return null;
     }
     
+    public int returnOrderValue(List<String> itemNames) {
+    	int orderValue=0;
+    	for(String itemName: itemNames) {
+    		Item item = findItemByName(itemName);
+    		orderValue= item.getPrice();
+    	}
+    	return orderValue;
+    }
 
     public void addToMenu(String name, int price) {
         Item newItem = new Item(name,price);

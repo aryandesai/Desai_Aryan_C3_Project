@@ -4,6 +4,8 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
@@ -80,5 +82,23 @@ class RestaurantTest {
                 ()->restaurant.removeFromMenu("French fries"));
     }
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+    
+    
+    @Test
+    public void get_orderValue_should_return_the_correct_total_price_of_items_in_list() {
+    	LocalTime openingTime = LocalTime.parse("10:30:00");
+        LocalTime closingTime = LocalTime.parse("22:00:00");
+        restaurant =new Restaurant("Amelie's cafe","Chennai",openingTime,closingTime);
+        restaurant.addToMenu("Biryani", 300);
+        restaurant.addToMenu("Tomato Soup", 100);
+        
+    	List<String> itemNames = new ArrayList<String>();
+    	itemNames.add("Biryani");
+    	itemNames.add("Tomato Soup");
+    	
+    	int totalPrice = restaurant.getMenu().get(0).getPrice() + restaurant.getMenu().get(1).getPrice();
+    
+    	assertEquals(totalPrice,restaurant.returnOrderValue(itemNames));
+    }
 
 }

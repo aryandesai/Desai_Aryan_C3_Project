@@ -84,6 +84,8 @@ class RestaurantTest {
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
     
     
+    
+    //Test Case for getOrderValue()
     @Test
     public void get_orderValue_should_return_the_correct_total_price_of_items_in_list() {
     	LocalTime openingTime = LocalTime.parse("10:30:00");
@@ -100,5 +102,7 @@ class RestaurantTest {
     
     	assertEquals(totalPrice,restaurant.returnOrderValue(itemNames));
     }
+    
+    
 
 }

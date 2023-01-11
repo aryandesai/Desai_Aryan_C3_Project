@@ -46,11 +46,12 @@ public class Restaurant {
         return null;
     }
     
+    //Additional feature: Returns total price for all the selected items in the order.
     public int returnOrderValue(List<String> itemNames) {
     	int orderValue=0;
     	for(String itemName: itemNames) {
     		Item item = findItemByName(itemName);
-    		orderValue= item.getPrice();
+    		orderValue= orderValue+item.getPrice();
     	}
     	return orderValue;
     }
